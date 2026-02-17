@@ -1,0 +1,88 @@
+/* ─────────────────────────────────────────
+   Add these to your existing globals.css
+   (or replace it entirely if starting fresh)
+───────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500&display=swap');
+
+/* ── THEME: Parchment (default) ── */
+:root {
+  --bg:       #F4F1EC;
+  --surface:  #F9F7F3;
+  --surface2: #EDE9E2;
+  --ink:      #1C1916;
+  --ink2:     #6B6659;
+  --ink3:     #B0AA9F;
+  --rule:     #DDD9D1;
+  --mark:     #EAE5DC;
+  --serif:    'Cormorant Garamond', Georgia, serif;
+  --mono:     'Geist Mono', monospace;
+  --sans:     'Geist', system-ui, sans-serif;
+}
+
+/* ── THEME: Noir ── */
+[data-theme="noir"] {
+  --bg:       #0D0D0D;
+  --surface:  #141414;
+  --surface2: #1C1C1C;
+  --ink:      #E8E4DC;
+  --ink2:     #8A857C;
+  --ink3:     #4A4640;
+  --rule:     #252220;
+  --mark:     #1C1A18;
+}
+
+/* ── THEME: Slate ── */
+[data-theme="slate"] {
+  --bg:       #1A2332;
+  --surface:  #1F2A3C;
+  --surface2: #243347;
+  --ink:      #D4CECC;
+  --ink2:     #7A8494;
+  --ink3:     #4A5468;
+  --rule:     #2C3A50;
+  --mark:     #243040;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; -webkit-font-smoothing: antialiased; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar        { width: 4px; height: 4px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--ink3); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink2); }
+
+/* ── ARCHITECTURAL GRID (body-level) ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(var(--rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.25;
+}
+
+/* ── GLOBAL ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%,80%,100% { opacity: 0.2; }
+  40%         { opacity: 1; }
+}
+@keyframes cursorBlink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
+}
+@keyframes waveBar {
+  from { transform: scaleY(0.3); }
+  to   { transform: scaleY(1); }
+}
+@keyframes auraRing {
+  from { transform: scale(0.9); opacity: 0.5; }
+  to   { transform: scale(1.1); opacity: 1; }
+}
