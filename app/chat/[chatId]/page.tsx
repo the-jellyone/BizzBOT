@@ -53,7 +53,7 @@ export default function ChatPage() {
     setMessages((prev) => [...prev, { role: "ai", content: "", streaming: true }]);
 
     try {
-      const res = await fetch("${process.env.NEXT_PUBLIC_API_URL}/chat", {
+      const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/chat', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input, chat_id: chatId, user_id: user.id }),

@@ -57,7 +57,7 @@ export default function VoiceInterface({ chatId, userId, onNewMessage, setLoadin
     formData.append("chat_id", chatId);
 
     try {
-      const res = await fetch("${process.env.NEXT_PUBLIC_API_URL}/voice-chat", { method: "POST", body: formData });
+      const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/voice-chat', { method: "POST", body: formData });
       if (!res.ok) { console.error("Voice error:", res.status); return; }
 
       const rawUserText = res.headers.get("X-User-Text");
